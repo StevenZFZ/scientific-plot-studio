@@ -1,14 +1,15 @@
 # Scientific Plot Studio · SPS
 
-**一个面向科研的可编辑绘图工作台。**
+**在 Mac 上读取 Origin 工程，把科研图保存为可移植、可继续编辑的图件。**
 
-从原始表格到论文图，往往要反复修改坐标、图例和样式。SPS 把数据和绘图设置保存在可编辑工程里，让图件能重新打开、修改和导出。希望它能帮科研同学少做重复排版，把更多时间留给实验和分析。
+从已有的 Origin 图到汇报或投稿，SPS 把读取、改图和导出串在一起。图页、数据、坐标轴和样式可以一起带走，换电脑或改数据时还能打开工程继续做。
 
-## 能做什么
+## 四个核心用法
 
-- **编辑图件** · 调整曲线、坐标轴和图例，保存为可继续编辑的 SPS 工程。
-- **复现导出** · 从同一工程导出 PNG、SVG、PDF 或 TIFF。
-- **整理投稿图** · 使用模板统一版式，逐张检查后再导出。
+- **在 Mac 上读取 Origin** · 配置对应读取器后，可读取受支持的 `.opj` / `.opju` 文件，提取数据、图页和部分样式，再在 SPS 里编辑。[Origin 读取范围与依赖](docs/ORIGIN_HEADLESS.md)
+- **打包可移植图表** · `.spsfig` 把 SPS 工程的数据、样式、图页和图层装进一个文件，传给协作者后可以在 SPS 里重新打开、改图和导出。
+- **把工程随 PowerPoint 带走** · 导出的 `.pptx` 同时保存图像和完整 SPS 工程。之后可用 SPS 从演示文稿恢复工程，修改后生成更新版 PPT 副本。
+- **把矢量图放进 Illustrator** · 导出 SVG 或 PDF，用于在 Illustrator 中置入和排版。科研数据、坐标轴等仍在 SPS 工程里修改。
 
 ## 五分钟跑通示例
 
@@ -38,7 +39,7 @@ python -m sps export output/demo.sps.json output/figures --name demo --formats p
 
 ## 当前边界
 
-本仓库提供 Python 源码。Windows 与 Linux 的桌面体验待社区验证。Origin 支持限于部分读取和重绘，详见[说明](docs/ORIGIN_HEADLESS.md)。Word 和 PowerPoint 的可编辑工作流有宿主与操作条件，普通图片粘贴依赖宿主行为。
+公开版为 Python 源码，Origin 读取器需单独配置。Origin 的复杂对象、完整样式和回写仍有缺口。PowerPoint 的工程编辑在 SPS 中完成，普通复制粘贴可能丢失工程。Illustrator 的 SVG/PDF 导出已验证，应用内往返仍待实测。Windows 与 Linux 桌面体验待验证。
 
 ## 许可证
 
